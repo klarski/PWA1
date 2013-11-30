@@ -1,6 +1,6 @@
 /*
-     Name:
-     Date:
+     Name: Kristen Kozinski
+     Date: 11/26/13
      Class & Section:  PWA1-####
      Comments: "Goal 1: Review of WPF"
  */
