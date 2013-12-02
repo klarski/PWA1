@@ -53,31 +53,66 @@ console.log('------ variables ----------');
 
     //example 1: variables defined properly
 
+        //var name = "james", course = "PWA1", month = 3;
+        //or
+        // var name = "james";
+        // var course = "PWA1";
+        // var month = 3;
+
+         //console.log("name: ", name + "/ course: ", course + "/ month: ", month) 
 
     //example 2: variables not defined will = "undefined"
 
+        //var name, course, month;
+
+        //console.log("name:", name + "/course:", course + "/month:", month);
 
     //example 3: a mix of variables defined and not defined
 
+        //var name, course = "PWA1", month;
+
+        //console.log("name:", name + "/ course:", course + "/ month:", month);
 
     //example 4: declaring multiple variables at once w/ same value
+
+        var a = b = c = d = 10
+        console.log( a,  b,  c , d);
+
+
 
 
 
 // string (definition, concatenation, escape character)
 console.log('------ strings ----------');
+   
+    var name = "James Bond";
+    console.log(name);
 
     //basic string
+
+        var testString = "He's in PWA1";
+        console.log(testString);
 
 
     //string w/ escape characters " \ "
 
+        var testString = "I need some \"quotes\" to be here";
+        console.log(testString);
+
+        var testString = 'He\'s in PWA1';
+        console.log(testString);
 
     //string w/ escape characters and mixed single/double quotes
+
+        var testString = 'He\'s in ' + '"PWA1"';
+        console.log(testString);
 
 
     //this example shows that all the "phase" vars above were overwritten
 
+        var num = 3;
+        var testString = 'he\'s in PWA1 ' + num;
+        console.log(testString);
 
 
 // numbers (definition, concatenation +, math, numbers & strings)
@@ -88,32 +123,70 @@ console.log('------ numbers ----------');
 
     //basic math
 
+    var counter = 10
+    console.log(counter + 1);
+    console.log(counter);
+
 
     //quick operations with "assignment operator" +=, -=, *=, /=, %=
     //one example below, can show more examples with other assignment operators
 
+    var num1 = 10;
+    var num2 = 5;
+    num1 += num2;
+
+    console.log(num1)
 
     //increment or decrement numbers by 1 with ++ or --
 
+    var myNum = 5
+    console.log(myNum);
+
+    myNum++;
+    console.log(myNum);
+
+    myNum--;
+    console.log(myNum);
     //this decrements right before it is being used
+
+    var num = 10;
+    --num; 
+    console.log(num);
 
     //this decrements after it is used
 
+    num--;
+    console.log(num);
+
     //comment out the above example
     //this decrements after it is being used as well
+    console.log(num--);
+    console.log(num);
 
 
     //add a number to a string is always a string
 
+    var myStr = '6' + 2;
+    console.log(myStr); 
+
 
     //other math operations will result in a number
+
+    var myStr = "6" / 2;
+    console.log(myStr);
 
 
     //order of operations: ( ), *, /, +, -
 
+    var num = 4 + (6 * 5 - 10) / 5;
+    console.log(num);
 
     //modulo example
 
+    var num1 = 10;
+    var num2 = 3;
+
+    console.log(num1%num2);
 
 // arrays: (definition, indexing, getter/setter)
 console.log('------ arrays ----------');
@@ -140,7 +213,11 @@ console.log('------ arrays ----------');
  */
 
     //arrays can hold any data type
-
+    console.log(myArr[0]);
+    console.log(myArr[1]);
+    console.log(myArr[2]);
+    console.log(myArr[3]);
+    console.log(myArr[4]);
 
 
  /*******************************************
@@ -151,6 +228,8 @@ console.log('------ arrays ----------');
     2.  console.log the sum of all the numbers in an array
 
  ********************************************/
+    var numArr = [10, 50, 100, 200];
+    console.log(numArr[0]+ numArr[1] + numArr[2] + numArr[3]);
 
 
 
@@ -168,6 +247,12 @@ console.log('------ arrays ----------');
     3. output array items using string concatenation
 
  ********************************************/
+
+    var myArray = new Array();
+    myArray[0] = "baseball";
+    myArray[1] = "football";
+    myArray[2] = "basketball";
+    console.log(myArray[0] + ", " + myArray[1] + ", " + myArray[2]); 
 
 
  // conditionals: (definition, indexing, math, if, if-else, if-else if, ternary)
@@ -203,8 +288,13 @@ console.log('------ conditionals ----------');
         a true or false boolean
     - conditions can be used just about anywhere, not just in conditionals and loops
 */
+    
+    var myVar = 5 > 3;
+    console.log(myVar);
 
-
+    if (5 > 3){
+        console.log("True!");
+    }
 
 /*
      most common comparison operators:
@@ -235,8 +325,22 @@ console.log('------ conditionals ----------');
 
     // == performs a loose check of two values
 
+    if ("1" == 1){
+        console.log("'1' == 1 is true")
+    };
 
 
+    if (1 == 1){
+        console.log("1 == 1 is true")
+    };
+
+    if ("1" === 1){
+        console.log("'1' == 1 is true")
+    };
+
+    if ("1" !== 1){
+        console.log("'1' !== 1 is true")
+    };
 /* ==============================================================
     if - else statements (allows only for one option)
 
@@ -249,13 +353,38 @@ console.log('------ conditionals ----------');
  ================================================================
  */
 
+     if ("a" === "b"){
+        console.log("a is less than b");
+     }else{
+        console.log("the if statement is false")
+     };
 
 
     //if - else if - else (allows for multiple options)
 
+    if ("a" > "b"){
+        console.log("a is less than b");
+    }else if ("a" < "c"){
+        console.log("a is less than c")
+    }else if ("a" < "d"){
+        console.log("a is less than d")
+    }else{
+        console.log("all others returned false")
+    };
 
 
     //nested conditional statement
+
+    if ("a" !== "a"){
+        if ("b" === "b"){
+            console.log("b === b is true");
+        }else{
+            console.log("b === b is not true");
+        };
+
+    }else{
+            console.log("a is not equal to a");
+    };
 
 
 
@@ -277,14 +406,33 @@ console.log('------ conditionals ----------');
 
     //AND logical operator
 
+    if ((1 === 1) && ("hi" === "hi")){
+        console.log("both sides are true");
+    };
+
 
     //OR logical operator
 
+    if ((1 === 1) || ("hi" === "no")){
+        console.log("one side is true");
+    };
 
     // ! NOT logical operator
 
+    if (!(1 === 1) && ("hi" === "hi")){
+        console.log("left is true converted to NOT");
+    }else{
+        console.log("both sides false");
+    };
+
 
     // all logical operators with order of operations
+
+    if (5 < 2 || (1===1 && ! (2 == "2" || 5 < 2))){
+        console.log("operator is true");
+    }else{
+        console.log("operator is false");
+    };
 
 
 
@@ -299,6 +447,14 @@ console.log('------ conditionals ----------');
  GOAL
     1. learn if - else
  ********************************************/
+
+    var weather = "Cloudy";
+
+    if (weather === "sunny"){
+        console.log("bobsMood is happy");
+    }else{
+        console.log("bobsMood is sad");
+    }
 
 
 
@@ -319,7 +475,30 @@ console.log('------ conditionals ----------');
     3.  console.log the results after each conditional
  ********************************************/
 
+    var weather = "Cloudy";
+    var waves = 10;
 
+    if (weather === "sunny"){
+        if(waves === 10){
+            bobsMood = "pumped";
+        }else if((waves >= 5) && (waves < 10)){
+            bobsMood = "mellow";
+        }else{
+            bobsMood = "bummed";
+        };
+    }else if(weather === "overcast"){
+        if((waves <= 10) && (waves >= 7)){
+            bobsMood = "jackedUp";
+        }else if ((waves <= 6) && (waves >= 3)) {
+            bobsMood = "totally bummed";
+        }else {
+            bobsMood = "not happy";
+        }
+    }else{
+        bobsMood = "sad";
+    };
+
+    console.log("Bob's mood is " + bobsMood);
 
 
 /*
@@ -342,7 +521,12 @@ console.log('------ conditionals ----------');
     - : = false (perform the new statement after the :)
  */
 
+    var weather = "Cloudy";
+    var mood = (weather === "Sunny" ? "happy" : "sad");
+    console.log(mood);
 
+    var smile = true;
+    console.log("I am " + (smile === true ? "happy" : "sad" ) + "!!")
 
 /*******************************************
  STUDENT ACTIVITY 5:
@@ -356,6 +540,10 @@ console.log('------ conditionals ----------');
     4.  console.log the results
  ********************************************/
 
+     var temp = 60;
+     var weather = "Sunny";
+     var student1 = (weather === "Sunny" ? "happy" : ((temp >= 80) ? 'content' :"sad"));
+     console.log(student1);
 
 
 // Functions: (definition, whitespace, invocation, arguments, returns)
@@ -400,11 +588,21 @@ console.log('------Functions ----------');
      - type the below as an example
         functionName();
  *****************************
+*/
 
 
+    var myctr = 1;
 
+    var myCounter = function (){
+        myctr++
+        console.log(myctr);
+    };
+
+    myCounter();
+    myCounter();
 
  /*
+
     function literal: passing data into a function
 
     - functions would be very limited if they could only execute the same thing every time
@@ -439,6 +637,15 @@ console.log('------Functions ----------');
     - items inside our function we call on these variables.. such as:
  */
 
+     var value1 = 1;
+     var value2 = 2;
+
+     var myFn = function(var1, var2){
+        console.log(var1 + var2);
+     };
+
+     myFn(value1, value2);
+
 
 
 
@@ -455,7 +662,17 @@ console.log('------Functions ----------');
  ********************************************/
 
 
+    var myctr = 1;
 
+    var myCounter = function (newct){
+        myctr+=newct;
+        console.log(myctr);
+    };
+
+    myCounter(5);
+    myCounter(2);
+
+ 
 
 /*******************************************
  function literal: returning values
@@ -473,6 +690,13 @@ console.log('------Functions ----------');
     // this technique is commonly used to end a function early, during execution
     // change the return statement to this 'return;'
 
+    var myFn = function(){
+        return 'jamesBond';
+    };
+
+    var name = myFn();
+    console.log(name);
+
 
 
 /*******************************************
@@ -485,7 +709,19 @@ console.log('------Functions ----------');
     4.  console.log the results
  ********************************************/
 
+    var myctr = 1;
 
+    var myCounter = function (newct){
+        myctr+=newct;
+        return myctr;
+    };
+
+    var cnt = myCounter(5)
+    console.log(cnt);
+
+    var cnt = myCounter(2)
+    console.log(cnt);
+   
 
 
 /*******************************************
@@ -497,4 +733,35 @@ console.log('------Functions ----------');
  4. return Mood
  5. console.log the Results
  ********************************************/
+
+    var value1 = "Overcast";
+    var value2 = 5;
+
+    var weatherFn = function(weather, waves){
+        if (weather === "sunny"){
+            if(waves === 10){
+                bobsMood = "pumped";
+            }else if((waves <= 9) && (waves >= 5)){
+                bobsMood = "mellow";
+            }else{
+                bobsMood = "bummed";
+            };
+
+        }else if(weather === "Overcast"){
+            if((waves <= 10) && (waves >= 7)){
+                bobsMood = "jackedUp";
+            }else if ((waves <= 6) && (waves >= 3)) {
+                bobsMood = "totally bummed";
+            }else {
+                bobsMood = "not happy";
+            }
+        }else{
+            bobsMood = "sad";
+        };
+        return bobsMood;
+    }
+
+    var mood = weatherFn(value1, value2)
+    console.log(mood);
+
 
