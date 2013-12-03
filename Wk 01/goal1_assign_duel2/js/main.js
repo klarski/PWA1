@@ -4,34 +4,37 @@
 
 (function(){
 
+var playerOne = ["Santa Claus", 100, 20];
+var playerTwo = ["Easter Bunny", 100, 20];
+
 //player name
-var playerOneName = "Santa Claus";
-var playerTwoName = "Easter Bunny";
+//var playerOneName = "Santa Claus";
+//var playerTwoName = "Easter Bunny";
 
 //player health
-var playerOneHealth = 100;
-var playerTwoHealth = 100;
+//var playerOneHealth = 100;
+//var playerTwoHealth = 100;
 
 //player damage
-var playerOneDamage = 20;
-var playerTwoDamage = 20;
+//var playerOneDamage = 20;
+//var playerTwoDamage = 20;
 
 var round = 0;
 
 function fight (){
 	console.log("fight function");
-	alert(playerOneName + ":" + playerOneHealth + " *START* " + playerTwoName + ":" + playerTwoHealth);
+	alert(playerOne[0] + ":" + playerOne[1] + " *START* " + playerTwo[0] + ":" + playerTwo[1]);
 	for(var i = 0; i < 10; i++){
 
-	var minDamage1 = playerOneDamage * .5;
-	var minDamage2 = playerTwoDamage * .5;
-	var f1 = Math.floor(Math.random() * (playerOneDamage - minDamage1) + minDamage1);
-	var f2 = Math.floor(Math.random() * (playerTwoDamage - minDamage2) + minDamage2);
+	var minDamage1 = playerOne[2] * .5;
+	var minDamage2 = playerTwo[2] * .5;
+	var f1 = Math.floor(Math.random() * (playerOne[2] - minDamage1) + minDamage1);
+	var f2 = Math.floor(Math.random() * (playerTwo[2] - minDamage2) + minDamage2);
 
-	playerOneHealth-=f1;
-	playerTwoHealth-=f2;
+	playerOne[1]-=f1;
+	playerTwo[1}-=f2;
 
-	console.log(playerOneName + ":" + playerOneHealth + " " + playerTwoName + ":" + playerTwoHealth);
+	console.log(playerOne[0] + ":" + playerOne[1] + " " + playerTwo[0] + ":" + playerTwo[1]);
 
 	var results = winnerCheck();
 	console.log(results);
