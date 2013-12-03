@@ -16,7 +16,7 @@ var playerTwoHealth = 100;
 var playerOneDamage = 20;
 var playerTwoDamage = 20;
 
-var round = 1;
+var round = 0;
 
 function fight (){
 	console.log("fight function");
@@ -33,20 +33,34 @@ function fight (){
 
 	console.log(playerOneName + ":" + playerOneHealth + " " + playerTwoName + ":" + playerTwoHealth);
 
+	var results = winnerCheck();
+	console.log(results);
+
+	if(results === "no winner"){
+		round++;
+		alert(playerOneName + ":" + playerOneHealth + " *ROUND " + round + " OVER* " + playerTwoName + ":" + playerTwoHealth);
+	}else{
+		alert(results);
+		break;
+	}
+
 	};
 
 };
 
-// var winnerCheck = function(){
-// 	if((playerOneHealth <= 0) && (playerTwoHealth > 0)){
-// 		console.log("Easter Bunny wins!");
-// 	}else if((playerTwoHealth <= 0) && (playerOneHealth > 0)){
-// 		console.log("Santa Claus wins!");
-// 	}else if((playerTwoHealth <= 0) && (playerOneHealth <= 0)){
-// 		console.log("Tie: Everyone dies!")
-// 	}
+function winnerCheck(){
+	console.log("winner function");
+	var result = "no winner";
 
-// }; 
+	if(playerOneHealth < 1 && playerTwoHealth < 1){
+		result = "You Both Die!" ;
+	}else if(playerOneHealth < 1){
+		result = playerTwoName + "wins!";
+	}else if(playerTwoHealth < 1) {
+		result = playerOneName + "wins!";
+	};
+	return result;
+}; 
 
 console.log("program starts");
 fight();
