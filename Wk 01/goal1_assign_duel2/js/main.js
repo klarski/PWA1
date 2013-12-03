@@ -1,11 +1,13 @@
 // Kristen Kozinski
 // 12/2/13
-// The Duel - Part 1
+// The Duel - Part 2
 
 (function(){
 
+console.log("fight");
 var playerOne = ["Santa Claus", 100, 20];
 var playerTwo = ["Easter Bunny", 100, 20];
+
 
 //player name
 //var playerOneName = "Santa Claus";
@@ -32,7 +34,7 @@ function fight (){
 	var f2 = Math.floor(Math.random() * (playerTwo[2] - minDamage2) + minDamage2);
 
 	playerOne[1]-=f1;
-	playerTwo[1}-=f2;
+	playerTwo[1]-=f2;
 
 	console.log(playerOne[0] + ":" + playerOne[1] + " " + playerTwo[0] + ":" + playerTwo[1]);
 
@@ -41,7 +43,7 @@ function fight (){
 
 	if(results === "no winner"){
 		round++;
-		alert(playerOneName + ":" + playerOneHealth + " *ROUND " + round + " OVER* " + playerTwoName + ":" + playerTwoHealth);
+		alert(playerOne[0] + ":" + playerOne[1] + " *ROUND " + round + " OVER* " + playerTwo[0] + ":" + playerTwo[1]);
 	}else{
 		alert(results);
 		break;
@@ -55,12 +57,12 @@ function winnerCheck(){
 	console.log("winner function");
 	var result = "no winner";
 
-	if(playerOneHealth < 1 && playerTwoHealth < 1){
+	if(playerOne[1] < 1 && playerTwo[1] < 1){
 		result = "You Both Die!" ;
-	}else if(playerOneHealth < 1){
-		result = playerTwoName + "wins!";
-	}else if(playerTwoHealth < 1) {
-		result = playerOneName + "wins!";
+	}else if(playerOne[1] < 1){
+		result = playerTwo[0] + "wins!";
+	}else if(playerTwo[1] < 1) {
+		result = playerOne[0] + "wins!";
 	};
 	return result;
 }; 
