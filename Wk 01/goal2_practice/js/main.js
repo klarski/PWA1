@@ -1,7 +1,7 @@
 /*
-     Name:
-     Date:
-     Class & Section:  PWA1-####
+     Name: Kristen Kozinski
+     Date: 12/2/13
+     Class & Section:  PWA1-1312
      Comments: "Goal 2: JavaScript Practice"
  */
 
@@ -159,37 +159,49 @@ var abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
 // Use charAt() to console.log the 'v' in str1.
 
+console.log(str1.charAt(4));
 
 // Use indexOf() to console.log the index of 'm' in str2.
 
+console.log(str2.indexOf('m'));
 
 // Use lastIndexOf() to console.log the last 'a' in str1.
 
+console.log(str1.lastIndexOf('a'));
 
 // Use length to console.log the length in str1.
 
+console.log(str1.length);
 
 // Use split() to console.log an array of the ABC's using the abc variable.
 // EX: ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 
+console.log(abc.split(""));
 
 //STUDENT ACTIVITY 1:
 // Use substr() to console.log 'JavaScript!' from str1.
 
+console.log(str1.substr(7, 11));
 
 // Use concat() to console.log 'I love JavaScript ! JavaScript loves me!' with str1 and str2.
 
-
+console.log(str1.concat(str2));
 
 //STUDENT ACTIVITY 2:
 // Use substring() to console.log 'JavaScript' from str2.
 
+console.log(str2.substring(0, 10));
 
 //STUDENT ACTIVITY 3:
 // 1. Use toLowerCase() to console.log the str1 all in lowercase letters.
 // 2. Use toUpperCase() to console.log the str1 all in uppercase letters.
 
+console.log(str1.toLowerCase());
+console.log(str1.toUpperCase());
 
+//Use toString() to console log the type of str1.
+
+console.log(typeof str1.toString());
 
 /*
 	===============================================
@@ -199,18 +211,25 @@ var abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
 console.log('------ MORE Numbers ----------');
 
+var num = 457896;
+var dec = 33.123456
+
 // Use toExponential() console.log num in exponential notation with two decimals.
 
+console.log(num.toExponential(2));
 
 // Use toPrecision() console.log dec as four numbers.
 
+console.log(dec.toPrecision(6));
 
 //STUDENT ACTIVITY 4:
 //What method would you use to console.log the variable dec with two decimals.
 
+console.log(dec.toFixed(2));
 
 // Use toString() to console.log the type of num.
 
+console.log(typeof num.toString());
 
 
 /*
@@ -252,32 +271,51 @@ var arr3 = ['apple', 'orange', 50393, 7.324];
 //Returns the first (least) index of an element within the array equal
 //to the specified value, or -1 if none is found.
 
+console.log(arr2.indexOf("c"));
 
 // join()
 // Joins all elements of an array into a string.
 
+console.log(arr2.join(','));
 
 // pop()
 // Removes the last element from an array and returns that element
 // shift() removes the first element from an array.
 
+var element = arr1.pop();
+console.log(element);
+console.log(arr1);
 
 // push()
 // Adds one or more elements to the end of an array and returns the new
 //   length of the array
 // unshift() - Adds one or more elements to the front of an array.
 
+arr2.push('f');
+console.log(arr2);
+
 
 // reverse()
 // Reverses the order of the elements of an array
 
+console.log(arr1.reverse());
 
 // splice()
 // Adds and/or removes elements from an array.
 
+console.log(arr1);
+console.log(arr1.splice(4,2));
+console.log(arr1);
 
 // forEach()
 // Calls a function for each element in the array.
+
+console.log(arr1);
+arr1.forEach(function(element,index,array){
+	console.log('element', element);
+	console.log('index', index);
+	console.log('array', array);
+});
 
 
 
@@ -303,6 +341,16 @@ var arr3 = ['apple', 'orange', 50393, 7.324];
     var secondHalfYr = ["Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
     var combined;
 
+	combined = firstQtr.concat(secondQtr);
+	console.log(combined);
+
+	combined = firstQtr.concat(secondQtr, secondHalfYr);
+	console.log(combined);
+
+	console.log(combined.join(", "));
+	console.log(combined.pop());
+	console.log(combined);
+	console.log(secondHalfYr.splice(2,2));
 
 /*
 	===============================================
@@ -313,6 +361,26 @@ var arr3 = ['apple', 'orange', 50393, 7.324];
 */
 
 console.log('------ MORE Operators - typeof() ----------');
+
+console.log(typeof 5);
+console.log(typeof "hi");
+
+var str1 = "hello"
+console.log(typeof str1);
+
+console.log(typeof false);
+console.log(typeof function(){});
+
+console.log(typeof obj1);
+console.log(typeof [1,2,3,4,5]);
+
+console.log(typeof missingVariable);
+
+if (typeof myString === "undefined"){
+	console.log("myString is undefined");
+}else{
+	console.log("myString is: ", myString);
+}
 
 
 /*
@@ -339,6 +407,29 @@ console.log('------ MORE Operators - typeof() ----------');
 
 console.log('------ MORE Conditionals - Switch ----------');
 
+var fruit = "Mangos"
+
+switch (fruit) {
+	case "Oranges":
+		console.log("Oranges are $0.59 a pound");
+		break;
+	case "Apples":
+		console.log("Apples are $0.32 a pound");
+		break;
+	case "Bananas":
+		console.log("Bananas are $0.48 a pound");
+		break;
+	case "Cherries":
+		console.log("Cherries are $3.00 a pound");
+		break;
+	case "Mangos":
+	case "Papayas":
+		console.log("Mangos and Papayas are $2.79 a pound");
+		break;
+	default:
+		console.log("Sorry we are out of " + fruit + ".");
+};
+
 /*******************************************
  STUDENT ACTIVITY 6:
 
@@ -349,6 +440,18 @@ console.log('------ MORE Conditionals - Switch ----------');
 			if no age then console.log "No answer"
 ********************************************/
 
+var age = 26;
+
+switch(age) {
+	case 13:
+		console.log("child");
+		break;
+	case 18:
+		console.log("adult");
+		break;
+	default:
+		console.log("no answer");
+}
 
 
 /*
@@ -363,6 +466,13 @@ console.log('------ MORE Conditionals - Switch ----------');
 */
 
 console.log('------ MORE Functions ----------');
+
+	var bondsCards = function(){
+		return ['ferrari', 'lambo', 'vwBug'];
+	}
+
+	var cars = bondsCards();
+	console.log("James Bonds cars", cars);
 
 
 	/* 
