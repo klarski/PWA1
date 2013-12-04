@@ -73,7 +73,21 @@
     //--------------------------------------------------------
     console.log("3. word count");
     var ipsum = "this is test text that is being used as input to a function"
+    
+    var wordCount = function(words){
+        var stringToArray = words.split(" ");
+        var numInArray = 0;
+        var total = 0;
 
+        for(var i= 0; i < stringToArray.length; i++){
+        total+= stringToArray[i];
+        ++numInArray;
+        answer = numInArray;
+        };
+        //console.log(stringToArray);
+        return answer;
+
+    };
 
     console.log(wordCount(ipsum));
 
