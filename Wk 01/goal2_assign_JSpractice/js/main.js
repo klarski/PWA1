@@ -115,7 +115,21 @@
     //--------------------------------------------------------
     console.log("5. how many vowels in a word");
 
-        //PUT FUNCTION HERE
+    var vowelsInWord = function(word){
+        var letInString = word.split("");
+        var vowelInString = 0
+        var total = 0
+    for(var i = 0; i<letInString.length; i++){
+        if(letInString[i] === "a" || letInString[i] === "e" || letInString[i] === "i" || letInString[i] === "o" || letInString[i] === "u"){
+        total+=vowelInString;
+        ++vowelInString;
+        var answer = vowelInString
+        }
+    }
+
+    return answer;    
+
+    }
 
     console.log(vowelsInWord('JavaScript'));
 
