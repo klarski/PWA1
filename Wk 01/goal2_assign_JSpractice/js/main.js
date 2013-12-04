@@ -46,8 +46,16 @@
 
     console.log("1. avg of an array of numbers");
     var avgNumbers = function(arr){
+        var numInArray = 0;
+        var total = 0;
 
-        //CODE GOES HERE
+        for(var i= 0; i < arr.length; i++){
+        total+= arr[i];
+        ++numInArray;
+        var answer = total / numInArray;   
+        };
+
+        return answer; 
     };
 
     console.log('avg number = ', avgNumbers([1,2,3,4,5]));
@@ -55,7 +63,6 @@
     //--------------------------------------------------------
     console.log("2. concat first and last name");
 
-        //PUT FUNCTION HERE
 
     console.log(fullName('James', 'Bond'));
 
@@ -63,7 +70,6 @@
     console.log("3. word count");
     var ipsum = "this is test text that is being used as input to a function"
 
-        //PUT FUNCTION HERE
 
     console.log(wordCount(ipsum));
 
