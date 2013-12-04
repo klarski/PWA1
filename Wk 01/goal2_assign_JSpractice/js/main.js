@@ -1,3 +1,6 @@
+//Kristen Kozinski
+// 12/3/13
+
 // self-executing function
 (function(){
 
