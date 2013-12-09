@@ -1,12 +1,14 @@
 // Kristen Kozinski
-// 12/2/13
-// The Duel - Part 2
+// 12/9/13
+// The Duel - Part 3
 
 (function(){
 
 console.log("fight");
-var playerOne = ["Santa Claus", 100, 20];
-var playerTwo = ["Easter Bunny", 100, 20];
+var playerOne = {name:"Santa Claus", health:100, damage:20};
+var playerTwo = {name:"Easter Bunny", health:100, damage:20};
+
+var players = [playerOne, playerTwo]; 
 
 
 
@@ -14,7 +16,7 @@ var round = 0;
 
 function fight (){
 	console.log("fight function");
-	alert(playerOne[0] + ":" + playerOne[1] + " *START* " + playerTwo[0] + ":" + playerTwo[1]);
+	//alert(playerOne[0] + ":" + playerOne[1] + " *START* " + playerTwo[0] + ":" + playerTwo[1]);
 	for(var i = 0; i < 10; i++){
 
 	var minDamage1 = playerOne[2] * .5;
@@ -32,7 +34,7 @@ function fight (){
 
 	if(results === "no winner"){
 		round++;
-		alert(playerOne[0] + ":" + playerOne[1] + " *ROUND " + round + " OVER* " + playerTwo[0] + ":" + playerTwo[1]);
+		//alert(playerOne[0] + ":" + playerOne[1] + " *ROUND " + round + " OVER* " + playerTwo[0] + ":" + playerTwo[1]);
 	}else{
 		alert(results);
 		break;
