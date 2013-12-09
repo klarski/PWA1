@@ -30,6 +30,9 @@ console.log('------Objects ----------');
 
 //{KEY : Value} pairings,
 
+	// person = {'name':'bond', 'age':35, 'secretAgent':true};
+
+	// person = {name:'bond', age:35, secretAgent:true};
 
 
 /* accessing object properties
@@ -42,11 +45,22 @@ console.log('------Objects ----------');
  */
 
 
-// setter
+// 	var personAge = 'age';
+// 	console.log(person.name, person[personAge], person['secretAgent'])
 
+// // setter
 
+// 	person['age'] = '40';
+// 	person.name = "JamesBond";
+// 	console.log(person);
 
-//nested objects
+// //nested objects
+
+// 	person={birthday:{month:02, day:12}, name:'bond'};
+// 	console.log(person);
+
+// 	console.log(person['birthday']['month']) //index notation
+// 	console.log(person.birthday.month);	//dot notation
 
 
 
@@ -56,6 +70,23 @@ console.log('------Objects ----------');
 
 console.log('------Object within an object, Arrays, Function ----------');
 
+var thatGuy = {
+	name: "JamesBond",
+	course: "PWA1",
+	address: {
+		num:3300,
+		street:'University',
+		city:'Orlando',
+		cornerOf: ['University', 'Semoran']
+	},
+	showMyAddress: function(){
+		var addr = this.address.street + "," + this.address.city;
+		return addr;
+	}
+};
+
+console.log(thatGuy.showMyAddress());
+console.log(thatGuy.address.street + ","+ thatGuy.address.city);
 
 
 //properties & methods
@@ -70,6 +101,12 @@ console.log('------Objects - properties & methods ----------');
 
 //Method 1 "Basic"
 
+var fsStudent = {};
+fsStudent.age = 22;
+fsStudent.career = "Web Dev";
+fsStudent.sayHello = function(){
+	console.log('Hello World!');
+};
 
 
 
@@ -80,7 +117,10 @@ console.log('------Objects - properties & methods ----------');
 // we can also access the methods and properties of an object using  [ ] , 
 // 	by using their name as a string - all of the below are valid:
 
-
+fsStudent.sayHello();
+fsStudent['sayHello']();
+console.log(fsStudent.age);
+console.log(fsStudent['age']);
 
 
 /* --------------
@@ -91,10 +131,19 @@ Method 2 "OBJECT Literal"
 
 	- below is the same object as in Method 1
 */
+var fsStudent = {};
+fsStudent.age = 22;
+fsStudent.career = "Web Dev";
+fsStudent.sayHello = function(){
+	console.log('Hello World!');
+};
 
 
+fsStudent.sayHello();
+fsStudent['sayHello']();
 
-
+console.log(fsStudent.age);
+console.log(fsStudent['age']);
 //---------------------------------------------
 
 
@@ -124,7 +173,28 @@ console.log('------ STUDENT ACTIVITY - ANSWERS BELOW ----------');
 
 // this is integrating multiple data types - object with an array of objects
 
+var schoolInfo = {
+	schoolName:"Full Sail",
+	address: "123 University Ave",
+	studentCount: 16000,
+	students:[
+		{name:'Kristen Kozinski', gpa:3.0, clasess:['PWA1, PWA2']},
+		{name:'Cameron Kozinski', gpa:3.5, clasess:['PWA1, PWA2']},
+		{name:"Heather Owen", gpa:4.0, classes:['PWA1']}
+	]
+};
 
+console.log(schoolInfo.schoolName);
+console.log(schoolInfo['schoolName']);
+
+var newCnt= 'studentCount';
+console.log(schoolInfo[newCnt]);
+
+var fieldName1 = 'address';
+console.log(schoolInfo[fieldName1]);
+
+console.log(schoolInfo.students[2].gpa);
+console.log(schoolInfo['students'][2]['gpa']);
 
 /* ----------------------------------------------------------------------------
  STUDENT ACTIVITY 2:
@@ -138,6 +208,19 @@ console.log('------ STUDENT ACTIVITY - ANSWERS BELOW ----------');
     2.  console.log the average grade by calling the gradeAvg method.
 ----------------------------------------------------------------------------- */
 
+var gradeAvg = function(obj){
+var numInArray = 0;
+var total = 0;
+
+for (var i = 0; i < schoolInfo.students.length; i++) {
+	numInArray++;
+	total+=schoolInfo.students[i]['gpa'];
+	};
+
+	return total/numInArray;
+};
+
+console.log(gradeAvg(schoolInfo));
 
 
 
@@ -151,7 +234,12 @@ console.log('------ STUDENT ACTIVITY - ANSWERS BELOW ----------');
 */
     console.log("---------- Object - For In Loop ----------------");
 
+	var students= {name:"JamesBond", gender:"male", job:"student"};
 
+	for(var key in students){
+		console.log('key name:', key);
+		console.log('key value:', students[key]);
+	}
 
 /*
 	===============================================
@@ -186,7 +274,12 @@ console.log('------ STUDENT ACTIVITY - ANSWERS BELOW ----------');
 */
     console.log('------ Objects - Converting Datatypes ----------');
 
+    var myNum = 1;
+    myString =String(myNum);
+    console.log(typeof myString, myString);
 
+    myBool = Boolean(myString);
+    console.log(typeof myBool, myBool);
 
 /*
 	- because these values act as objects, the data types also have methods and 
@@ -197,17 +290,43 @@ console.log('------ STUDENT ACTIVITY - ANSWERS BELOW ----------');
 
 // #1 - shows string length
 
+myStr ="OMG",
+console.log(myStr.length);
 
 // #2 - shows array length
 	
+myArr = [6,10];
+console.log(myArr.length);	
 
 // #3 - shows and array of objects, inside of an object length
 	
+	var schoolInfo = {
+	schoolName:"Full Sail",
+	address: "123 University Ave",
+	studentCount: 16000,
+	students:[
+		{name:'Kristen Kozinski', gpa:3.0, clasess:['PWA1, PWA2']},
+		{name:'Cameron Kozinski', gpa:3.5, clasess:['PWA1, PWA2']},
+		{name:"Heather Owen", gpa:4.0, classes:['PWA1']}
+	]
+};
+
+console.log(schoolInfo.students.length);	
 
 console.log('------ MORE Object examples - Objects/Functions ----------');
 
 // showing a function call and creating a method
 
+var fn = function(name, course){
+	return{
+		sayHi: function(){
+			console.log("my name is " + name + "I am in course " + course);
+		}
+	}
+
+}
+
+fn("JamesBond", "PWA1").sayHi();
 
 
 /*
@@ -221,7 +340,7 @@ console.log('------ MORE Object examples - Objects/Functions ----------');
 console.log('------------ DOCUMENT OBJECT MODEL -------------------');
 
 //Window DOM object
-/*
+
  console.log(window);
  console.log(window.location);
  console.log(window.history);
@@ -231,7 +350,7 @@ console.log('------------ DOCUMENT OBJECT MODEL -------------------');
  console.log(document);
  console.log(document.body);
  console.log(document.head);
- */
+
 
 
 /*
@@ -253,6 +372,9 @@ console.log('------------ DOCUMENT OBJECT MODEL -------------------');
 console.log('------------ getElementById -------------------');
 
 
+var playbox = document.getElementById('playbox');
+console.log(playbox);
+playbox.style.backgroundColor = "Red";
 
 
 /*
@@ -265,7 +387,12 @@ console.log('------------ getElementById -------------------');
 
 console.log('------------ getElementsByTagName -------------------');
 
+var anchor = document.getElementsByTagName('a');
+console.log(anchor);
 
+for(var i =0, max=anchor.length; i < max; i++){
+	console.log(anchor[i]);
+}
 
 
 /*
@@ -281,7 +408,11 @@ console.log('------------ getElementsByTagName -------------------');
 
 console.log('------------ querySelectorAll -------------------');
 
+var nav = document.querySelectorAll('#nav li:last-child');
+console.log(nav);
 
+var cf = document.querySelectorAll('clearfix');
+console.log(cf);
 
 
 /*
@@ -296,7 +427,8 @@ console.log('------------ querySelectorAll -------------------');
     console.log('------------ querySelector -------------------');
 
 
-
+var nav = document.querySelector("#nav");
+console.log(nav);
 
 
     /*
@@ -320,7 +452,9 @@ console.log('------------ querySelectorAll -------------------');
     */
     console.log('------------ TRAVERSAL -------------------');
 
-
+var apple = document.querySelectorAll('#nav li a')[2];
+console.log(apple);
+console.log((apple.parentNode.parentNode.parentNode).nextSibling);
 
 
 /*
@@ -339,6 +473,18 @@ console.log('------------ querySelectorAll -------------------');
         attr = href, src, class
 */
 
+var navLinks = document.querySelectorAll('#nav li');
+
+for (var i = 0; i < navLinks.length; i++) {
+	var href = navLinks[i].firstChild.getAttribute('href');
+	console.log(href);
+
+	if(href === '#1'){
+		var href2 = navLinks[i].firstChild;
+		console.log(href2);
+
+		href2.setAttribute('href', 'http://www.fullsail.com');
+	}
 
 
 /*
@@ -357,6 +503,29 @@ console.log('------------ querySelectorAll -------------------');
 
 console.log('------------ Manipulating CSS Classes -------------------');
 
+	// var aClass = navLinks[i].firstChild.getAttribute('class');
+	// console.log(aClass);
+
+	// navLinks[i].firstChild.setAttribute('class', 'navitem active');
+
+console.log('------------ Manipulating HTML-------------------');
+
+	navLinks[i].firstChild.setAttribute('href', 'http://google.com');
+
+};
+
+// var navLinks = document.querySelectorAll('#nav a');
+// console.log(navLinks[1].innerHTML);
+
+// navLinks[1].innerHTML = "This link rock!";
+
+// for (var i = 0; i < navLinks.length; i++) {
+// 	navLinks[i].innerHTML = "Click Me " + i;
+// };
+
+
+
+
 
 /*
 	==================================================================
@@ -369,6 +538,10 @@ console.log('------------ Manipulating CSS Classes -------------------');
 Sample Link: http://www.instructables.com/files/deriv/FJI/WGSW/FPIUQQ3K/FJIWGSWFPIUQQ3K.MEDIUM.jpg
 */
 
+var bigImage = document.querySelector('#contentPreview img');
+console.log(bigImage);
+
+bigImage.setAttribute('src','http://www.instructables.com/files/deriv/FJI/WGSW/FPIUQQ3K/FJIWGSWFPIUQQ3K.MEDIUM.jpg')
 
 
 /*
@@ -404,6 +577,16 @@ console.log('------------ DOM Events Ex 1-------------------');
 
 var nav = document.querySelectorAll('#nav li a');
 
+for (var i = 0; i < nav.length; i++) {
+	console.log(nav[i]);
+	nav[i].onclick = function(e){
+		 console.log(e);
+
+		 e.preventDefault();
+
+		 return false;
+	}
+};
 
 /*
 // this just console.log's when a click occurs
@@ -444,11 +627,28 @@ console.log('------------ DOM Events Ex 2 -------------------');
 /*
 // this example changes the clicked link to the active class
 
-
-
-
 */ 
 
+nav[0].setAttribute('class', 'navitem active');
+	
+for (var i = 0; i < nav.length; i++) {
+	nav[i].onclick = function(e){
+
+		// for(var ii = 0; ii < nav.length; ii++){
+		// 	nav[ii].setAttribute('class', 'navitem');
+		// };
+
+		document.querySelector('#nav li a.active').setAttribute('class', 'navitem');
+
+		console.log(this);
+		this.setAttribute('class','navitem active');
+		
+		e.preventDefault();
+		return false;
+
+	};
+
+};
 
 
 console.log('------------ DOM Events Ex 3 -------------------');
