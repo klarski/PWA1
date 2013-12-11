@@ -17,15 +17,14 @@ var round = 0;
 function fight (){
 	console.log("fight function");
 	//alert(playerOne[0] + ":" + playerOne[1] + " *START* " + playerTwo[0] + ":" + playerTwo[1]);
-	for(var i = 0; i < 10; i++){
 
-	var minDamage1 = playerOne[2] * .5;
-	var minDamage2 = playerTwo[2] * .5;
-	var f1 = Math.floor(Math.random() * (playerOne[2] - minDamage1) + minDamage1);
-	var f2 = Math.floor(Math.random() * (playerTwo[2] - minDamage2) + minDamage2);
+	var minDamage1 = playerOne.damage * .5;
+	var minDamage2 = playerTwo.damage * .5;
+	var f1 = Math.floor(Math.random() * (playerOne.damage - minDamage1) + minDamage1);
+	var f2 = Math.floor(Math.random() * (playerTwo.damage - minDamage2) + minDamage2);
 
-	playerOne[1]-=f1;
-	playerTwo[1]-=f2;
+	playerOne.health-=f1;
+	playerTwo.health-=f2;
 
 	console.log(playerOne[0] + ":" + playerOne[1] + " " + playerTwo[0] + ":" + playerTwo[1]);
 
@@ -40,7 +39,6 @@ function fight (){
 		break;
 	}
 
-	};
 
 };
 
