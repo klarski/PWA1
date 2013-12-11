@@ -306,30 +306,38 @@ console.log('------------ DOM Events -------------------');
 
 console.log('------------ Regular Expressions -------------------');
 
+
+ var emailRegEx = /^[\w\.\-]+@([\w\-]+\.)+[a-zA-Z]+$/;
+
+ var email = new RegExp('/^[\w\.\-]+@([\w\-]+\.)+[a-zA-Z]+$/');
+
+
 /******************************************************************************
 STUDENT ACTIVITY
 
 	1.  Write a RegEx for a basic name (containing only letters)
 
-		Answer: 
+		Answer:  /^[a-zA-Z]+$/
 
 	2.  What are the possible answers for this: /[Jj]ava[Ss]cript/
 
-		Answer: 
+		Answer: Javascript, javascript, JavaScript, javaScript
 
 	3. 	What are the possible answers for this: /^(Java)?Script$/
 
-		Answer: 
+		Answer: JavaScript, Script, 
 
 	4. 	Describe the possible answer for this: /^[a-zA-Z\^\-\.]+$/
 
-		Answer: 
+		Answer: Matched 1 or more of only letters
 
 	5.	Combining character sets can create sequences of matches.
 		
 		Describe the possible answers for this: /^[a-zA-Z]+[0-9]$/ 	
 
-		Answer: 
+		Answer: Matches one or more letters at the beginning and 1 number at the end
+
+			james1 would work but james11 will not 
 
 ----------------------------------------------------------------------------- */
 
@@ -347,8 +355,16 @@ STUDENT ACTIVITY
 */
 
 
+var emailRegEx = /(\w[-._\w]*\w@\w[-._\w]*\w\.\w{2,3})/;
+var str = "My personal email is jc@google.com but my work email is jc@fullsail.com"
 
+console.log(emailRegEx.exec(str));
+console.log(emailRegEx.test(str));
+console.log(str.search(emailRegEx));
+var clean = str.replace(emailRegEx,'XXX@XXX.com');
+console.log(clean);
 
+console.log(str.match(emailRegEx));
 
 
 /* 
@@ -401,7 +417,12 @@ STUDENT ACTIVITY
 
     console.log('------------ Math Methods -------------------');
 
+	//console.log(document.getElementById('tagbox').innerHTML=Math.random());
 
+	var rand = Math.floor((Math.random()* 10 + 1))
+	console.log(rand);
+
+	console.log(document.getElementById('tagbox').innerHTML=Math.round(2.5));
 
     /******************************************************************************
      STUDENT ACTIVITY
@@ -419,8 +440,13 @@ STUDENT ACTIVITY
 
     ****************************************************************************/
 
+console.log(Math.max(100, 1000, 50, 2, 55, 75));
+console.log(Math.min(100, 1000, 50, 2, 55, 75));
 
-
+console.log(Math.floor(Math.random()* 10000 + 100));
+var randNum = Math.random()* 100 + 10;
+console.log(randNum);
+console.log(Math.round(randNum));
 
 /*	==================================================================
 	Date Methods
@@ -435,7 +461,19 @@ STUDENT ACTIVITY
 
     console.log('------------ Date Methods -------------------');
 
+    var d = new Date();
+    console.log(d.getDate());
+    console.log(d.getDay());
+    console.log(d.getFullYear());
+    console.log(d.getHours());
+    console.log(d.getMilliseconds());
+    console.log(d.getTime());
 
+    console.log(d.setFullYear(2021,0,01));
 
+   	document.getElementById('tagbox').innerHTML=d;
+
+   	var d = new Date();
+   	console.log(typeof d.toString());
 
 })(); // end wrapper
