@@ -11,12 +11,10 @@ var playerTwo = {name:"Easter Bunny", health:100, damage:20};
 var players = [playerOne, playerTwo]; 
 var button = document.querySelector('.buttonblue');
 
-
 var round = 0;
 
 function fight (){
 	console.log("fight function");
-	//alert(playerOne[0] + ":" + playerOne[1] + " *START* " + playerTwo[0] + ":" + playerTwo[1]);
 
 	var minDamage1 = playerOne.damage * .5;
 	var minDamage2 = playerTwo.damage * .5;
@@ -64,7 +62,6 @@ console.log("program starts");
 button.onclick = function(e){
 	console.log("I work");
 	fight();
-
 
 	e.preventDefault();
 	return false;
