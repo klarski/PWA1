@@ -9,7 +9,7 @@ var playerOne = {name:"Santa Claus", health:100, damage:20};
 var playerTwo = {name:"Easter Bunny", health:100, damage:20};
 
 var players = [playerOne, playerTwo]; 
-
+var button = document.querySelector('.buttonblue');
 
 
 var round = 0;
@@ -26,17 +26,18 @@ function fight (){
 	playerOne.health-=f1;
 	playerTwo.health-=f2;
 
-	console.log(playerOne[0] + ":" + playerOne[1] + " " + playerTwo[0] + ":" + playerTwo[1]);
+	console.log(playerOne.name + ":" + playerOne.health + " " + playerTwo.name + ":" + playerTwo.health);
 
 	var results = winnerCheck();
 	console.log(results);
 
 	if(results === "no winner"){
+	document.getElementById('kabal').innerHTML= playerOne.health;
+	document.getElementById('kratos').innerHTML= playerTwo.health;
 		round++;
 		//alert(playerOne[0] + ":" + playerOne[1] + " *ROUND " + round + " OVER* " + playerTwo[0] + ":" + playerTwo[1]);
 	}else{
 		alert(results);
-		break;
 	}
 
 
@@ -57,6 +58,15 @@ function winnerCheck(){
 }; 
 
 console.log("program starts");
-fight();
+
+button.onclick = function(e){
+	console.log("I work");
+	fight();
+
+	e.preventDefault();
+	return false;
+}
+
+
 
 })();
