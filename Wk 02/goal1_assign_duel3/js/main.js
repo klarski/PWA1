@@ -32,12 +32,14 @@ function fight (){
 	console.log(results);
 
 	if(results === "no winner"){
-	document.getElementById('kabal').innerHTML= playerOne.health;
-	document.getElementById('kratos').innerHTML= playerTwo.health;
-		round++;
-		//alert(playerOne[0] + ":" + playerOne[1] + " *ROUND " + round + " OVER* " + playerTwo[0] + ":" + playerTwo[1]);
+	document.querySelector('#kabal p').innerHTML= playerOne.name + ":" + playerOne.health;
+	document.querySelector('#kratos p').innerHTML= playerTwo.name + ":" +  playerTwo.health;
+	round++;
+	document.getElementById('round_number').innerHTML= "Round #" + round + " is over!";
+		
 	}else{
-		alert(results);
+		document.querySelector('#kratos p').innerHTML= results;
+		document.querySelector('#kabal p').innerHTML = "";
 	}
 
 
@@ -47,12 +49,12 @@ function winnerCheck(){
 	console.log("winner function");
 	var result = "no winner";
 
-	if(playerOne[1] < 1 && playerTwo[1] < 1){
+	if(playerOne.health < 1 && playerTwo.health < 1){
 		result = "You Both Die!" ;
-	}else if(playerOne[1] < 1){
-		result = playerTwo[0] + "wins!";
-	}else if(playerTwo[1] < 1) {
-		result = playerOne[0] + "wins!";
+	}else if(playerOne.health < 1){
+		result = playerTwo.name + " wins!";
+	}else if(playerTwo.health < 1) {
+		result = playerOne.name + " wins!";
 	};
 	return result;
 }; 
@@ -62,6 +64,7 @@ console.log("program starts");
 button.onclick = function(e){
 	console.log("I work");
 	fight();
+
 
 	e.preventDefault();
 	return false;
